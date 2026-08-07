@@ -1,6 +1,6 @@
 {
     "name": "popup-from-future",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A flexible, animated, themeable popup component for React and Next.js",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
