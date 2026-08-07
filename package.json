@@ -1,5 +1,5 @@
 {
-    "name": "@ssaprt/popup",
+    "name": "popup-from-future",
     "version": "1.0.0",
     "description": "A flexible, animated, themeable popup component for React and Next.js",
     "main": "dist/index.js",

@@ -1,8 +1,8 @@
-# Popup by @ssaprt
+# Popup-from-future by @ssaprt
 
 A flexible, animated, themeable popup component for React and Next.js.
 
-`@ssaprt/popup` provides controlled popup rendering, built-in visual presets, separate open and close animations, configurable overlay blur and background, custom sizing, headers, close controls, delayed close-button access, timer rendering, style overrides, React portals, and full TypeScript support.
+`popup-from-future` provides controlled popup rendering, built-in visual presets, separate open and close animations, configurable overlay blur and background, custom sizing, headers, close controls, delayed close-button access, timer rendering, style overrides, React portals, and full TypeScript support.
 
 [Web version](https://utility-lab.store/react/UI-Components/popup/)
 
@@ -47,21 +47,21 @@ The popup is rendered into `document.body` through a React portal and can be con
 ## Installation
 
 ```bash
-npm install @ssaprt/popup
+npm install popup-from-future
 ```
 
 ```bash
-yarn add @ssaprt/popup
+yarn add popup-from-future
 ```
 
 ```bash
-pnpm add @ssaprt/popup
+pnpm add popup-from-future
 ```
 
 Import the stylesheet once in your application:
 
 ```ts
-import "@ssaprt/popup/style.css";
+import "popup-from-future/style.css";
 ```
 
 ## Basic usage
@@ -74,8 +74,8 @@ You provide the current state through `isOpen` and update it through `open`.
 "use client";
 
 import { useState } from "react";
-import { Popup } from "@ssaprt/popup";
-import "@ssaprt/popup/style.css";
+import { Popup } from "popup-from-future";
+import "popup-from-future/style.css";
 
 export const Example = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -1179,8 +1179,8 @@ Only explicitly supplied properties override the selected preset.
 
 import { useState } from "react";
 import { IconX } from "@tabler/icons-react";
-import { Popup } from "@ssaprt/popup";
-import "@ssaprt/popup/style.css";
+import { Popup } from "popup-from-future";
+import "popup-from-future/style.css";
 
 export const CompleteExample = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -1412,7 +1412,7 @@ The built-in default is:
 "use client";
 
 import { useRef, useState } from "react";
-import { Popup } from "@ssaprt/popup";
+import { Popup } from "popup-from-future";
 
 export const Example = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -1685,7 +1685,7 @@ The package can expose the component and its public types from the root entry po
 ```ts
 import {
     Popup,
-} from "@ssaprt/popup";
+} from "popup-from-future";
 
 import type {
     AnimationDuration,
@@ -1705,7 +1705,7 @@ import type {
     PopupPresetName,
     SizeType,
     SizeValue,
-} from "@ssaprt/popup";
+} from "popup-from-future";
 ```
 
 ## React and Next.js
@@ -1725,8 +1725,8 @@ It must therefore be rendered from a Client Component in Next.js.
 "use client";
 
 import { useState } from "react";
-import { Popup } from "@ssaprt/popup";
-import "@ssaprt/popup/style.css";
+import { Popup } from "popup-from-future";
+import "popup-from-future/style.css";
 
 export const PopupExample = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -1762,7 +1762,7 @@ It can be used from any Client Component in the application.
 "use client";
 
 import { useState } from "react";
-import { Popup } from "@ssaprt/popup";
+import { Popup } from "popup-from-future";
 
 export const PopupController = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -2037,7 +2037,7 @@ import { useState } from "react";
 import {
     Popup,
     type PopupPresetName,
-} from "@ssaprt/popup";
+} from "popup-from-future";
 
 const presets: PopupPresetName[] = [
     "glass",
