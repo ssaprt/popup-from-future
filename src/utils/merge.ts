@@ -139,39 +139,77 @@ const resolveAnimation = (
     };
 };
 
-const resolveSize = (
-    size?: SizeType,
-): Pick<CSSProperties, "width" | "height"> => {
+const resolveSizeVars = (
+    size: SizeType | undefined,
+    prefix: string,
+): CSSProperties => {
     if (size === undefined) {
         return {};
     }
 
+    let width: string | number;
+    let height: string | number;
+
     if (typeof size === "number") {
-        return {
-            width: size,
-            height: size,
-        };
+        width = size;
+        height = size;
+    } else if (typeof size === "object") {
+        width = size.w;
+        height = size.h;
+    } else {
+        const [w, h = w] = size.trim().split(/\s+/);
+        width = w;
+        height = h;
     }
-
-    if (typeof size === "object") {
-        return {
-            width: size.w,
-            height: size.h,
-        };
-    }
-
-    const [width, height = width] = size.trim().split(/\s+/);
 
     return {
-        width,
-        height,
-    };
+        [`${prefix}-width`]: String(width),
+        [`${prefix}-height`]: String(height),
+    } as CSSProperties;
 };
 
 const mergeClassNames = (...classNames: Array<string | undefined>): string => {
     return classNames
         .filter((className): className is string => Boolean(className?.trim()))
         .join(" ");
+};
+
+/**
+ * Extracts themeable properties from a style object and maps them onto
+ * CSS custom properties. By applying theme values through CSS variables
+ * (consumed inside `:where()` rules with zero specificity), a consumer's
+ * `className` can override them without `!important`.
+ */
+const toThemeVars = (
+    style: CSSProperties | undefined,
+    prefix: string,
+): CSSProperties => {
+    if (!style) {
+        return {};
+    }
+
+    const keyMap: Array<[keyof CSSProperties, string]> = [
+        ["color", `${prefix}-color`],
+        ["background", `${prefix}-background`],
+        ["border", `${prefix}-border`],
+        ["borderRadius", `${prefix}-border-radius`],
+        ["boxShadow", `${prefix}-box-shadow`],
+        ["fontFamily", `${prefix}-font-family`],
+        ["backdropFilter", `${prefix}-backdrop-filter`],
+        ["WebkitBackdropFilter", `${prefix}-webkit-backdrop-filter`],
+    ];
+
+    const vars: Record<string, string> = {};
+
+    for (const [key, varName] of keyMap) {
+        const value = style[key];
+
+        if (value !== undefined) {
+            vars[varName] = String(value);
+        }
+    }
+
+    return vars;
 };
 
 export const merge = ({
@@ -184,6 +222,12 @@ export const merge = ({
     size,
 }: MergeProps): MergedPopupConfig => {
     const selectedPreset = preset ? popupPresets[preset] : undefined;
+
+    const presetContainerStyle = selectedPreset?.customStyle?.container?.style;
+    const presetHeaderStyle = selectedPreset?.customStyle?.header?.style;
+    const presetBodyStyle = selectedPreset?.customStyle?.body?.style;
+    const presetCloseStyle = selectedPreset?.close?.style;
+    const presetCloseTimerStyle = selectedPreset?.close?.timer?.style;
 
     return {
         index: index ?? stylesConfig.index,
@@ -218,11 +262,7 @@ export const merge = ({
                     stylesConfig.layer.blur,
             ),
 
-            style: {
-                ...stylesConfig.layer.style,
-                ...selectedPreset?.layer?.style,
-                ...layer?.style,
-            },
+            style: layer?.style ?? {},
 
             className: mergeClassNames(
                 stylesConfig.layer.className,
@@ -241,11 +281,12 @@ export const merge = ({
             ),
 
             style: {
-                ...stylesConfig.close.style,
-                ...resolveSize(stylesConfig.close.size),
-                ...resolveSize(selectedPreset?.close?.size),
-                ...selectedPreset?.close?.style,
-                ...resolveSize(close?.size),
+                ...toThemeVars(presetCloseStyle, "--ssaprt-popup-close"),
+                ...resolveSizeVars(
+                    selectedPreset?.close?.size,
+                    "--ssaprt-popup-close",
+                ),
+                ...resolveSizeVars(close?.size, "--ssaprt-popup-close"),
                 ...close?.style,
             },
 
@@ -259,8 +300,10 @@ export const merge = ({
                 render: close?.timer?.render,
 
                 style: {
-                    ...stylesConfig.close.timer.style,
-                    ...selectedPreset?.close?.timer?.style,
+                    ...toThemeVars(
+                        presetCloseTimerStyle,
+                        "--ssaprt-popup-close-timer",
+                    ),
                     ...close?.timer?.style,
                 },
 
@@ -275,10 +318,15 @@ export const merge = ({
         customStyle: {
             container: {
                 style: {
-                    ...stylesConfig.customStyle.container.style,
-                    ...resolveSize(selectedPreset?.size),
-                    ...selectedPreset?.customStyle?.container?.style,
-                    ...resolveSize(size),
+                    ...toThemeVars(
+                        presetContainerStyle,
+                        "--ssaprt-popup-container",
+                    ),
+                    ...resolveSizeVars(
+                        selectedPreset?.size,
+                        "--ssaprt-popup-container",
+                    ),
+                    ...resolveSizeVars(size, "--ssaprt-popup-container"),
                     ...customStyle?.container?.style,
                 },
 
@@ -291,8 +339,7 @@ export const merge = ({
 
             header: {
                 style: {
-                    ...stylesConfig.customStyle.header.style,
-                    ...selectedPreset?.customStyle?.header?.style,
+                    ...toThemeVars(presetHeaderStyle, "--ssaprt-popup-header"),
                     ...customStyle?.header?.style,
                 },
 
@@ -305,8 +352,7 @@ export const merge = ({
 
             body: {
                 style: {
-                    ...stylesConfig.customStyle.body.style,
-                    ...selectedPreset?.customStyle?.body?.style,
+                    ...toThemeVars(presetBodyStyle, "--ssaprt-popup-body"),
                     ...customStyle?.body?.style,
                 },
 

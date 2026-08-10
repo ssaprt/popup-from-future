@@ -105,6 +105,7 @@ interface PopupInterface {
     children: ReactNode;
     isOpen: boolean;
     open?: (status: boolean) => void;
+    className?: string;
     index?: number;
     animation?: PopupAnimationProps;
     preset?: PopupPresetName;

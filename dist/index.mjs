@@ -661,39 +661,24 @@ var stylesConfig = {
   animation: {
     open: {
       animationName: "fade-in",
-      duration: 600,
-      easing: "cubic-bezier(0.22, 1, 0.36, 1)"
+      duration: 0,
+      easing: "linear"
     },
     close: {
       animationName: "fade-out",
-      duration: 600,
-      easing: "cubic-bezier(0.22, 1, 0.36, 1)"
+      duration: 0,
+      easing: "linear"
     }
   },
   layer: {
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: "rgba(0, 0, 0, 0.1)",
     blur: "0px",
     className: "",
     style: {}
   },
   close: {
-    size: "32px",
     className: "",
-    style: {
-      position: "absolute",
-      top: "8px",
-      right: "8px",
-      zIndex: 2,
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      flexShrink: 0,
-      padding: 0,
-      border: 0,
-      borderRadius: "50%",
-      color: "inherit",
-      background: "transparent"
-    },
+    style: {},
     timer: {
       className: "",
       style: {}
@@ -702,36 +687,15 @@ var stylesConfig = {
   customStyle: {
     container: {
       className: "",
-      style: {
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        translate: "-50% -50%",
-        width: "auto",
-        height: "auto",
-        maxWidth: "100%",
-        maxHeight: "100dvh",
-        minWidth: "min(300px, 90vw)",
-        minHeight: "200px",
-        borderRadius: "12px",
-        background: "linear-gradient(283deg, rgba(115, 86, 209, 1) 0%, #8654b3 35%, rgba(82, 56, 128, 1) 74%, rgba(112, 38, 133, 1) 100%)",
-        backgroundColor: "#8654b3",
-        overflow: "hidden",
-        padding: "10px"
-      }
+      style: {}
     },
     header: {
       className: "",
-      style: {
-        borderRadius: "12px"
-      }
+      style: {}
     },
     body: {
       className: "",
-      style: {
-        overflowX: "auto",
-        overflowY: "auto"
-      }
+      style: {}
     }
   }
 };
@@ -770,30 +734,53 @@ var resolveAnimation = (defaults, presetAnimation, presetPhaseAnimation, animati
     easing: phaseAnimation?.easing ?? animation?.easing ?? presetPhaseAnimation?.easing ?? presetAnimation?.easing ?? defaults.easing
   };
 };
-var resolveSize = (size) => {
+var resolveSizeVars = (size, prefix) => {
   if (size === void 0) {
     return {};
   }
+  let width;
+  let height;
   if (typeof size === "number") {
-    return {
-      width: size,
-      height: size
-    };
+    width = size;
+    height = size;
+  } else if (typeof size === "object") {
+    width = size.w;
+    height = size.h;
+  } else {
+    const [w, h = w] = size.trim().split(/\s+/);
+    width = w;
+    height = h;
   }
-  if (typeof size === "object") {
-    return {
-      width: size.w,
-      height: size.h
-    };
-  }
-  const [width, height = width] = size.trim().split(/\s+/);
   return {
-    width,
-    height
+    [`${prefix}-width`]: String(width),
+    [`${prefix}-height`]: String(height)
   };
 };
 var mergeClassNames = (...classNames) => {
   return classNames.filter((className) => Boolean(className?.trim())).join(" ");
+};
+var toThemeVars = (style, prefix) => {
+  if (!style) {
+    return {};
+  }
+  const keyMap = [
+    ["color", `${prefix}-color`],
+    ["background", `${prefix}-background`],
+    ["border", `${prefix}-border`],
+    ["borderRadius", `${prefix}-border-radius`],
+    ["boxShadow", `${prefix}-box-shadow`],
+    ["fontFamily", `${prefix}-font-family`],
+    ["backdropFilter", `${prefix}-backdrop-filter`],
+    ["WebkitBackdropFilter", `${prefix}-webkit-backdrop-filter`]
+  ];
+  const vars = {};
+  for (const [key, varName] of keyMap) {
+    const value = style[key];
+    if (value !== void 0) {
+      vars[varName] = String(value);
+    }
+  }
+  return vars;
 };
 var merge = ({
   preset,
@@ -805,6 +792,11 @@ var merge = ({
   size
 }) => {
   const selectedPreset = preset ? popupPresets[preset] : void 0;
+  const presetContainerStyle = selectedPreset?.customStyle?.container?.style;
+  const presetHeaderStyle = selectedPreset?.customStyle?.header?.style;
+  const presetBodyStyle = selectedPreset?.customStyle?.body?.style;
+  const presetCloseStyle = selectedPreset?.close?.style;
+  const presetCloseTimerStyle = selectedPreset?.close?.timer?.style;
   return {
     index: index ?? stylesConfig.index,
     animation: {
@@ -828,11 +820,7 @@ var merge = ({
       blur: resolveBlur(
         layer?.blur ?? selectedPreset?.layer?.blur ?? stylesConfig.layer.blur
       ),
-      style: {
-        ...stylesConfig.layer.style,
-        ...selectedPreset?.layer?.style,
-        ...layer?.style
-      },
+      style: layer?.style ?? {},
       className: mergeClassNames(
         stylesConfig.layer.className,
         selectedPreset?.layer?.className,
@@ -846,11 +834,12 @@ var merge = ({
         close?.timeOutShow ?? stylesConfig.close.timeOutShow
       ),
       style: {
-        ...stylesConfig.close.style,
-        ...resolveSize(stylesConfig.close.size),
-        ...resolveSize(selectedPreset?.close?.size),
-        ...selectedPreset?.close?.style,
-        ...resolveSize(close?.size),
+        ...toThemeVars(presetCloseStyle, "--ssaprt-popup-close"),
+        ...resolveSizeVars(
+          selectedPreset?.close?.size,
+          "--ssaprt-popup-close"
+        ),
+        ...resolveSizeVars(close?.size, "--ssaprt-popup-close"),
         ...close?.style
       },
       className: mergeClassNames(
@@ -861,8 +850,10 @@ var merge = ({
       timer: {
         render: close?.timer?.render,
         style: {
-          ...stylesConfig.close.timer.style,
-          ...selectedPreset?.close?.timer?.style,
+          ...toThemeVars(
+            presetCloseTimerStyle,
+            "--ssaprt-popup-close-timer"
+          ),
           ...close?.timer?.style
         },
         className: mergeClassNames(
@@ -875,10 +866,15 @@ var merge = ({
     customStyle: {
       container: {
         style: {
-          ...stylesConfig.customStyle.container.style,
-          ...resolveSize(selectedPreset?.size),
-          ...selectedPreset?.customStyle?.container?.style,
-          ...resolveSize(size),
+          ...toThemeVars(
+            presetContainerStyle,
+            "--ssaprt-popup-container"
+          ),
+          ...resolveSizeVars(
+            selectedPreset?.size,
+            "--ssaprt-popup-container"
+          ),
+          ...resolveSizeVars(size, "--ssaprt-popup-container"),
           ...customStyle?.container?.style
         },
         className: mergeClassNames(
@@ -889,8 +885,7 @@ var merge = ({
       },
       header: {
         style: {
-          ...stylesConfig.customStyle.header.style,
-          ...selectedPreset?.customStyle?.header?.style,
+          ...toThemeVars(presetHeaderStyle, "--ssaprt-popup-header"),
           ...customStyle?.header?.style
         },
         className: mergeClassNames(
@@ -901,8 +896,7 @@ var merge = ({
       },
       body: {
         style: {
-          ...stylesConfig.customStyle.body.style,
-          ...selectedPreset?.customStyle?.body?.style,
+          ...toThemeVars(presetBodyStyle, "--ssaprt-popup-body"),
           ...customStyle?.body?.style
         },
         className: mergeClassNames(

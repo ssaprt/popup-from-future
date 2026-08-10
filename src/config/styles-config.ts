@@ -33,7 +33,7 @@ interface StylesConfig {
     };
 
     close: {
-        size: SizeType;
+        size?: SizeType;
         timeOutShow?: AnimationDuration;
         style: CSSProperties;
         className?: string;
@@ -57,47 +57,31 @@ export const stylesConfig: StylesConfig = {
     animation: {
         open: {
             animationName: "fade-in",
-            duration: 600,
-            easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+            duration: 0,
+            easing: "linear",
         },
 
         close: {
             animationName: "fade-out",
-            duration: 600,
-            easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+            duration: 0,
+            easing: "linear",
         },
     },
 
     layer: {
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        backgroundColor: "rgba(0, 0, 0, 0.1)",
         blur: "0px",
         className: "",
         style: {},
     },
 
     close: {
-        size: "32px",
         className: "",
 
-        style: {
-            position: "absolute",
-            top: "8px",
-            right: "8px",
-            zIndex: 2,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexShrink: 0,
-            padding: 0,
-            border: 0,
-            borderRadius: "50%",
-            color: "inherit",
-            background: "transparent",
-        },
+        style: {},
 
         timer: {
             className: "",
-
             style: {},
         },
     },
@@ -105,42 +89,17 @@ export const stylesConfig: StylesConfig = {
     customStyle: {
         container: {
             className: "",
-
-            style: {
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                translate: "-50% -50%",
-                width: "auto",
-                height: "auto",
-                maxWidth: "100%",
-                maxHeight: "100dvh",
-                minWidth: "min(300px, 90vw)",
-                minHeight: "200px",
-                borderRadius: "12px",
-                background:
-                    "linear-gradient(283deg, rgba(115, 86, 209, 1) 0%, #8654b3 35%, rgba(82, 56, 128, 1) 74%, rgba(112, 38, 133, 1) 100%)",
-                backgroundColor: "#8654b3",
-                overflow: "hidden",
-                padding: "10px",
-            },
+            style: {},
         },
 
         header: {
             className: "",
-
-            style: {
-                borderRadius: "12px",
-            },
+            style: {},
         },
 
         body: {
             className: "",
-
-            style: {
-                overflowX: "auto",
-                overflowY: "auto",
-            },
+            style: {},
         },
     },
 } satisfies StylesConfig;

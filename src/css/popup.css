@@ -1,4 +1,4 @@
-.ssaprt-popup__layer {
+:where(.ssaprt-popup__layer) {
     position: fixed;
     inset: 0;
 
@@ -21,7 +21,7 @@
     will-change: background-color, backdrop-filter;
 }
 
-.ssaprt-popup__layer--opening {
+:where(.ssaprt-popup__layer--opening) {
     animation-name: ssaprt-popup-layer-opening;
 
     animation-duration: var(--ssaprt-popup-layer-duration, 600ms);
@@ -31,7 +31,7 @@
     animation-fill-mode: both;
 }
 
-.ssaprt-popup__layer--closing {
+:where(.ssaprt-popup__layer--closing) {
     animation-name: ssaprt-popup-layer-closing;
 
     animation-duration: var(--ssaprt-popup-layer-duration, 600ms);
@@ -43,15 +43,12 @@
 
 @keyframes ssaprt-popup-layer-opening {
     0% {
-        background-color: transparent;
         backdrop-filter: blur(0);
         -webkit-backdrop-filter: blur(0);
     }
 
     25%,
     100% {
-        background-color: var(--ssaprt-popup-layer-background, transparent);
-
         backdrop-filter: blur(var(--ssaprt-popup-layer-blur, 0px));
 
         -webkit-backdrop-filter: blur(var(--ssaprt-popup-layer-blur, 0px));
@@ -61,22 +58,22 @@
 @keyframes ssaprt-popup-layer-closing {
     0%,
     75% {
-        background-color: var(--ssaprt-popup-layer-background, transparent);
-
         backdrop-filter: blur(var(--ssaprt-popup-layer-blur, 0px));
 
         -webkit-backdrop-filter: blur(var(--ssaprt-popup-layer-blur, 0px));
     }
 
     100% {
-        background-color: transparent;
         backdrop-filter: blur(0);
         -webkit-backdrop-filter: blur(0);
     }
 }
 
-.ssaprt-popup__container {
-    position: relative;
+:where(.ssaprt-popup__container) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
 
     display: flex;
     flex-direction: column;
@@ -84,7 +81,30 @@
     align-items: center;
     gap: 10px;
 
-    overflow: visible;
+    width: var(--ssaprt-popup-container-width, auto);
+    height: var(--ssaprt-popup-container-height, auto);
+    max-width: 100%;
+    max-height: 100dvh;
+    min-width: min(300px, 90vw);
+    min-height: 200px;
+
+    padding: 10px;
+    overflow: hidden;
+
+    color: var(--ssaprt-popup-container-color, inherit);
+    background: var(--ssaprt-popup-container-background, #ffffff);
+    border: var(--ssaprt-popup-container-border, 0);
+    border-radius: var(--ssaprt-popup-container-border-radius, 12px);
+    box-shadow: var(
+        --ssaprt-popup-container-box-shadow,
+        0 18px 50px rgba(0, 0, 0, 0.12)
+    );
+    font-family: var(--ssaprt-popup-container-font-family, inherit);
+    backdrop-filter: var(--ssaprt-popup-container-backdrop-filter, none);
+    -webkit-backdrop-filter: var(
+        --ssaprt-popup-container-webkit-backdrop-filter,
+        none
+    );
 
     transform-style: preserve-3d;
     transform-origin: center;
@@ -93,7 +113,7 @@
     will-change: transform, opacity;
 }
 
-.ssaprt-popup__header {
+:where(.ssaprt-popup__header) {
     position: relative;
 
     display: flex;
@@ -104,9 +124,12 @@
 
     white-space: nowrap;
     text-overflow: ellipsis;
+
+    color: var(--ssaprt-popup-header-color, inherit);
+    border-radius: var(--ssaprt-popup-header-border-radius, 12px);
 }
 
-.ssaprt-popup__body {
+:where(.ssaprt-popup__body) {
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -116,16 +139,40 @@
 
     min-width: 0;
     min-height: 0;
+
+    overflow-x: auto;
+    overflow-y: auto;
+
+    color: var(--ssaprt-popup-body-color, inherit);
 }
 
-.ssaprt-popup__close {
+:where(.ssaprt-popup__close) {
     position: absolute;
+    top: 8px;
+    right: 8px;
     z-index: 2;
 
     display: grid;
     place-items: center;
 
+    width: var(--ssaprt-popup-close-width, 32px);
+    height: var(--ssaprt-popup-close-height, 32px);
+    flex-shrink: 0;
+
     box-sizing: border-box;
+
+    padding: 0;
+    border: var(--ssaprt-popup-close-border, 0);
+    border-radius: var(--ssaprt-popup-close-border-radius, 50%);
+
+    color: var(--ssaprt-popup-close-color, currentColor);
+    background: var(--ssaprt-popup-close-background, transparent);
+    box-shadow: var(--ssaprt-popup-close-box-shadow, none);
+    backdrop-filter: var(--ssaprt-popup-close-backdrop-filter, none);
+    -webkit-backdrop-filter: var(
+        --ssaprt-popup-close-webkit-backdrop-filter,
+        none
+    );
 
     opacity: 0;
     visibility: hidden;
@@ -140,7 +187,7 @@
         transform 160ms ease;
 }
 
-.ssaprt-popup__close--visible {
+:where(.ssaprt-popup__close--visible) {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -148,12 +195,12 @@
     transform: scale(1);
 }
 
-.ssaprt-popup__close--timer {
+:where(.ssaprt-popup__close--timer) {
     cursor: default;
     pointer-events: none;
 }
 
-.ssaprt-popup__close-button {
+:where(.ssaprt-popup__close-button) {
     display: grid;
     place-items: center;
 
@@ -178,12 +225,12 @@
     cursor: pointer;
 }
 
-.ssaprt-popup__close-button:focus-visible {
+:where(.ssaprt-popup__close-button):focus-visible {
     outline: 2px solid currentColor;
     outline-offset: 2px;
 }
 
-.ssaprt-popup__close-icon {
+:where(.ssaprt-popup__close-icon) {
     display: grid;
     place-items: center;
 
@@ -196,14 +243,14 @@
     pointer-events: none;
 }
 
-.ssaprt-popup__close-icon > svg {
+:where(.ssaprt-popup__close-icon > svg) {
     width: 100%;
     height: 100%;
 
     pointer-events: none;
 }
 
-.ssaprt-popup__close-timer {
+:where(.ssaprt-popup__close-timer) {
     position: relative;
 
     display: grid;
@@ -217,8 +264,8 @@
     box-sizing: border-box;
     border-radius: 50%;
 
-    color: inherit;
-    background: rgba(91, 31, 134, 0.08);
+    color: var(--ssaprt-popup-close-timer-color, #18181b);
+    background: var(--ssaprt-popup-close-timer-background, transparent);
 
     isolation: isolate;
 
@@ -227,7 +274,7 @@
     -webkit-user-select: none;
 }
 
-.ssaprt-popup__close-timer-svg {
+:where(.ssaprt-popup__close-timer-svg) {
     position: absolute;
     inset: 0;
 
@@ -244,19 +291,18 @@
     pointer-events: none;
 }
 
-.ssaprt-popup__close-timer-track,
-.ssaprt-popup__close-timer-progress {
+:where(.ssaprt-popup__close-timer-track, .ssaprt-popup__close-timer-progress) {
     fill: none;
     pointer-events: none;
 }
 
-.ssaprt-popup__close-timer-track {
+:where(.ssaprt-popup__close-timer-track) {
     stroke: currentColor;
     stroke-width: 2;
     opacity: 0.18;
 }
 
-.ssaprt-popup__close-timer-progress {
+:where(.ssaprt-popup__close-timer-progress) {
     stroke: currentColor;
     stroke-width: 3;
     stroke-linecap: round;
@@ -264,7 +310,7 @@
     transition: none;
 }
 
-.ssaprt-popup__close-timer-value {
+:where(.ssaprt-popup__close-timer-value) {
     position: relative;
     z-index: 1;
 
@@ -283,12 +329,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .ssaprt-popup__layer--opening,
-    .ssaprt-popup__layer--closing {
+    :where(.ssaprt-popup__layer--opening, .ssaprt-popup__layer--closing) {
         animation-timing-function: linear;
     }
 
-    .ssaprt-popup__close {
+    :where(.ssaprt-popup__close) {
         transition-duration: 1ms;
     }
 }

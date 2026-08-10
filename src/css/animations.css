@@ -1,4 +1,4 @@
-.animate {
+:where(.animate) {
     --animation-duration: 600ms;
     --animation-delay: 0ms;
     --animation-easing: cubic-bezier(0.22, 1, 0.36, 1);
@@ -13,245 +13,245 @@
     will-change: transform, opacity;
 }
 
-.ssaprt-popup--animate-fade-in {
+:where(.ssaprt-popup--animate-fade-in) {
     animation-name: ssaprt-popup-fade-in;
 }
 
-.ssaprt-popup--animate-fade-out {
+:where(.ssaprt-popup--animate-fade-out) {
     animation-name: ssaprt-popup-fade-out;
 }
 
-.ssaprt-popup--animate-slide-up-in {
+:where(.ssaprt-popup--animate-slide-up-in) {
     animation-name: ssaprt-popup-slide-up-in;
 }
 
-.ssaprt-popup--animate-slide-up-out {
+:where(.ssaprt-popup--animate-slide-up-out) {
     animation-name: ssaprt-popup-slide-up-out;
 }
 
-.ssaprt-popup--animate-slide-down-in {
+:where(.ssaprt-popup--animate-slide-down-in) {
     animation-name: ssaprt-popup-slide-down-in;
 }
 
-.ssaprt-popup--animate-slide-down-out {
+:where(.ssaprt-popup--animate-slide-down-out) {
     animation-name: ssaprt-popup-slide-down-out;
 }
 
-.ssaprt-popup--animate-slide-left-in {
+:where(.ssaprt-popup--animate-slide-left-in) {
     animation-name: ssaprt-popup-slide-left-in;
 }
 
-.ssaprt-popup--animate-slide-left-out {
+:where(.ssaprt-popup--animate-slide-left-out) {
     animation-name: ssaprt-popup-slide-left-out;
 }
 
-.ssaprt-popup--animate-slide-right-in {
+:where(.ssaprt-popup--animate-slide-right-in) {
     animation-name: ssaprt-popup-slide-right-in;
 }
 
-.ssaprt-popup--animate-slide-right-out {
+:where(.ssaprt-popup--animate-slide-right-out) {
     animation-name: ssaprt-popup-slide-right-out;
 }
 
-.ssaprt-popup--animate-zoom-in {
+:where(.ssaprt-popup--animate-zoom-in) {
     animation-name: ssaprt-popup-zoom-in;
 }
 
-.ssaprt-popup--animate-zoom-out {
+:where(.ssaprt-popup--animate-zoom-out) {
     animation-name: ssaprt-popup-zoom-out;
 }
 
-.ssaprt-popup--animate-pop-in {
+:where(.ssaprt-popup--animate-pop-in) {
     animation-name: ssaprt-popup-pop-in;
 }
 
-.ssaprt-popup--animate-pop-out {
+:where(.ssaprt-popup--animate-pop-out) {
     animation-name: ssaprt-popup-pop-out;
 }
 
-.ssaprt-popup--animate-drop-in {
+:where(.ssaprt-popup--animate-drop-in) {
     animation-name: ssaprt-popup-drop-in;
     transform-origin: top center;
 }
 
-.ssaprt-popup--animate-drop-out {
+:where(.ssaprt-popup--animate-drop-out) {
     animation-name: ssaprt-popup-drop-out;
     transform-origin: bottom center;
 }
 
-.ssaprt-popup--animate-blur-in {
+:where(.ssaprt-popup--animate-blur-in) {
     animation-name: ssaprt-popup-blur-in;
     will-change: transform, opacity, filter;
 }
 
-.ssaprt-popup--animate-blur-out {
+:where(.ssaprt-popup--animate-blur-out) {
     animation-name: ssaprt-popup-blur-out;
     will-change: transform, opacity, filter;
 }
 
-.ssaprt-popup--animate-rotate-in {
+:where(.ssaprt-popup--animate-rotate-in) {
     animation-name: ssaprt-popup-rotate-in;
 }
 
-.ssaprt-popup--animate-rotate-out {
+:where(.ssaprt-popup--animate-rotate-out) {
     animation-name: ssaprt-popup-rotate-out;
 }
 
-.ssaprt-popup--animate-flip-x-in {
+:where(.ssaprt-popup--animate-flip-x-in) {
     animation-name: ssaprt-popup-flip-x-in;
     transform-origin: center;
 }
 
-.ssaprt-popup--animate-flip-x-out {
+:where(.ssaprt-popup--animate-flip-x-out) {
     animation-name: ssaprt-popup-flip-x-out;
     transform-origin: center;
 }
 
-.ssaprt-popup--animate-flip-y-in {
+:where(.ssaprt-popup--animate-flip-y-in) {
     animation-name: ssaprt-popup-flip-y-in;
     transform-origin: center;
 }
 
-.ssaprt-popup--animate-flip-y-out {
+:where(.ssaprt-popup--animate-flip-y-out) {
     animation-name: ssaprt-popup-flip-y-out;
     transform-origin: center;
 }
 
-.ssaprt-popup--animate-tilt-in {
+:where(.ssaprt-popup--animate-tilt-in) {
     animation-name: ssaprt-popup-tilt-in;
 }
 
-.ssaprt-popup--animate-tilt-out {
+:where(.ssaprt-popup--animate-tilt-out) {
     animation-name: ssaprt-popup-tilt-out;
 }
 
-.ssaprt-popup--animate-bounce-in {
+:where(.ssaprt-popup--animate-bounce-in) {
     animation-name: ssaprt-popup-bounce-in;
 }
 
-.ssaprt-popup--animate-bounce-out {
+:where(.ssaprt-popup--animate-bounce-out) {
     animation-name: ssaprt-popup-bounce-out;
 }
 
-.ssaprt-popup--animate-pulse-in {
+:where(.ssaprt-popup--animate-pulse-in) {
     animation-name: ssaprt-popup-pulse-in;
 }
 
-.ssaprt-popup--animate-pulse-out {
+:where(.ssaprt-popup--animate-pulse-out) {
     animation-name: ssaprt-popup-pulse-out;
 }
 
-.ssaprt-popup--animate-heartbeat-in {
+:where(.ssaprt-popup--animate-heartbeat-in) {
     animation-name: ssaprt-popup-heartbeat-in;
 }
 
-.ssaprt-popup--animate-heartbeat-out {
+:where(.ssaprt-popup--animate-heartbeat-out) {
     animation-name: ssaprt-popup-heartbeat-out;
 }
 
-.ssaprt-popup--animate-shake-in {
+:where(.ssaprt-popup--animate-shake-in) {
     animation-name: ssaprt-popup-shake-in;
 }
 
-.ssaprt-popup--animate-shake-out {
+:where(.ssaprt-popup--animate-shake-out) {
     animation-name: ssaprt-popup-shake-out;
 }
 
-.ssaprt-popup--animate-wobble-in {
+:where(.ssaprt-popup--animate-wobble-in) {
     animation-name: ssaprt-popup-wobble-in;
 }
 
-.ssaprt-popup--animate-wobble-out {
+:where(.ssaprt-popup--animate-wobble-out) {
     animation-name: ssaprt-popup-wobble-out;
 }
 
-.ssaprt-popup--animate-swing-in {
+:where(.ssaprt-popup--animate-swing-in) {
     animation-name: ssaprt-popup-swing-in;
     transform-origin: top center;
 }
 
-.ssaprt-popup--animate-swing-out {
+:where(.ssaprt-popup--animate-swing-out) {
     animation-name: ssaprt-popup-swing-out;
     transform-origin: top center;
 }
 
-.ssaprt-popup--animate-rubber-band-in {
+:where(.ssaprt-popup--animate-rubber-band-in) {
     animation-name: ssaprt-popup-rubber-band-in;
 }
 
-.ssaprt-popup--animate-rubber-band-out {
+:where(.ssaprt-popup--animate-rubber-band-out) {
     animation-name: ssaprt-popup-rubber-band-out;
 }
 
-.ssaprt-popup--animate-jello-in {
+:where(.ssaprt-popup--animate-jello-in) {
     animation-name: ssaprt-popup-jello-in;
     transform-origin: center;
 }
 
-.ssaprt-popup--animate-jello-out {
+:where(.ssaprt-popup--animate-jello-out) {
     animation-name: ssaprt-popup-jello-out;
     transform-origin: center;
 }
 
-.ssaprt-popup--animate-float-in {
+:where(.ssaprt-popup--animate-float-in) {
     animation-name: ssaprt-popup-float-in;
 }
 
-.ssaprt-popup--animate-float-out {
+:where(.ssaprt-popup--animate-float-out) {
     animation-name: ssaprt-popup-float-out;
 }
 
-.ssaprt-popup--animate-breathe-in {
+:where(.ssaprt-popup--animate-breathe-in) {
     animation-name: ssaprt-popup-breathe-in;
 }
 
-.ssaprt-popup--animate-breathe-out {
+:where(.ssaprt-popup--animate-breathe-out) {
     animation-name: ssaprt-popup-breathe-out;
 }
 
-.ssaprt-popup--animate-spin-in {
+:where(.ssaprt-popup--animate-spin-in) {
     animation-name: ssaprt-popup-spin-in;
 }
 
-.ssaprt-popup--animate-spin-out {
+:where(.ssaprt-popup--animate-spin-out) {
     animation-name: ssaprt-popup-spin-out;
 }
 
-.ssaprt-popup--animate-glow-in {
+:where(.ssaprt-popup--animate-glow-in) {
     animation-name: ssaprt-popup-glow-in;
     will-change: transform, opacity, box-shadow;
 }
 
-.ssaprt-popup--animate-glow-out {
+:where(.ssaprt-popup--animate-glow-out) {
     animation-name: ssaprt-popup-glow-out;
     will-change: transform, opacity, box-shadow;
 }
 
-.ssaprt-popup--animate-glitch-in {
+:where(.ssaprt-popup--animate-glitch-in) {
     animation-name: ssaprt-popup-glitch-in;
     will-change: transform, opacity, filter;
 }
 
-.ssaprt-popup--animate-glitch-out {
+:where(.ssaprt-popup--animate-glitch-out) {
     animation-name: ssaprt-popup-glitch-out;
     will-change: transform, opacity, filter;
 }
 
-.ssaprt-popup--animate-jump-in {
+:where(.ssaprt-popup--animate-jump-in) {
     animation-name: ssaprt-popup-jump-in;
     transform-origin: bottom center;
 }
 
-.ssaprt-popup--animate-jump-out {
+:where(.ssaprt-popup--animate-jump-out) {
     animation-name: ssaprt-popup-jump-out;
     transform-origin: bottom center;
 }
 
-.ssaprt-popup--animate-press-in {
+:where(.ssaprt-popup--animate-press-in) {
     animation-name: ssaprt-popup-press-in;
 }
 
-.ssaprt-popup--animate-press-out {
+:where(.ssaprt-popup--animate-press-out) {
     animation-name: ssaprt-popup-press-out;
 }
 
@@ -1602,7 +1602,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .animate {
+    :where(.animate) {
         animation-duration: 1ms !important;
         animation-delay: 0ms !important;
         animation-iteration-count: 1 !important;

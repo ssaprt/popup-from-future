@@ -1,5 +1,5 @@
 /* src/css/animations.css */
-.animate {
+:where(.animate) {
   --animation-duration: 600ms;
   --animation-delay: 0ms;
   --animation-easing: cubic-bezier(0.22, 1, 0.36, 1);
@@ -11,208 +11,208 @@
   backface-visibility: hidden;
   will-change: transform, opacity;
 }
-.ssaprt-popup--animate-fade-in {
+:where(.ssaprt-popup--animate-fade-in) {
   animation-name: ssaprt-popup-fade-in;
 }
-.ssaprt-popup--animate-fade-out {
+:where(.ssaprt-popup--animate-fade-out) {
   animation-name: ssaprt-popup-fade-out;
 }
-.ssaprt-popup--animate-slide-up-in {
+:where(.ssaprt-popup--animate-slide-up-in) {
   animation-name: ssaprt-popup-slide-up-in;
 }
-.ssaprt-popup--animate-slide-up-out {
+:where(.ssaprt-popup--animate-slide-up-out) {
   animation-name: ssaprt-popup-slide-up-out;
 }
-.ssaprt-popup--animate-slide-down-in {
+:where(.ssaprt-popup--animate-slide-down-in) {
   animation-name: ssaprt-popup-slide-down-in;
 }
-.ssaprt-popup--animate-slide-down-out {
+:where(.ssaprt-popup--animate-slide-down-out) {
   animation-name: ssaprt-popup-slide-down-out;
 }
-.ssaprt-popup--animate-slide-left-in {
+:where(.ssaprt-popup--animate-slide-left-in) {
   animation-name: ssaprt-popup-slide-left-in;
 }
-.ssaprt-popup--animate-slide-left-out {
+:where(.ssaprt-popup--animate-slide-left-out) {
   animation-name: ssaprt-popup-slide-left-out;
 }
-.ssaprt-popup--animate-slide-right-in {
+:where(.ssaprt-popup--animate-slide-right-in) {
   animation-name: ssaprt-popup-slide-right-in;
 }
-.ssaprt-popup--animate-slide-right-out {
+:where(.ssaprt-popup--animate-slide-right-out) {
   animation-name: ssaprt-popup-slide-right-out;
 }
-.ssaprt-popup--animate-zoom-in {
+:where(.ssaprt-popup--animate-zoom-in) {
   animation-name: ssaprt-popup-zoom-in;
 }
-.ssaprt-popup--animate-zoom-out {
+:where(.ssaprt-popup--animate-zoom-out) {
   animation-name: ssaprt-popup-zoom-out;
 }
-.ssaprt-popup--animate-pop-in {
+:where(.ssaprt-popup--animate-pop-in) {
   animation-name: ssaprt-popup-pop-in;
 }
-.ssaprt-popup--animate-pop-out {
+:where(.ssaprt-popup--animate-pop-out) {
   animation-name: ssaprt-popup-pop-out;
 }
-.ssaprt-popup--animate-drop-in {
+:where(.ssaprt-popup--animate-drop-in) {
   animation-name: ssaprt-popup-drop-in;
   transform-origin: top center;
 }
-.ssaprt-popup--animate-drop-out {
+:where(.ssaprt-popup--animate-drop-out) {
   animation-name: ssaprt-popup-drop-out;
   transform-origin: bottom center;
 }
-.ssaprt-popup--animate-blur-in {
+:where(.ssaprt-popup--animate-blur-in) {
   animation-name: ssaprt-popup-blur-in;
   will-change:
     transform,
     opacity,
     filter;
 }
-.ssaprt-popup--animate-blur-out {
+:where(.ssaprt-popup--animate-blur-out) {
   animation-name: ssaprt-popup-blur-out;
   will-change:
     transform,
     opacity,
     filter;
 }
-.ssaprt-popup--animate-rotate-in {
+:where(.ssaprt-popup--animate-rotate-in) {
   animation-name: ssaprt-popup-rotate-in;
 }
-.ssaprt-popup--animate-rotate-out {
+:where(.ssaprt-popup--animate-rotate-out) {
   animation-name: ssaprt-popup-rotate-out;
 }
-.ssaprt-popup--animate-flip-x-in {
+:where(.ssaprt-popup--animate-flip-x-in) {
   animation-name: ssaprt-popup-flip-x-in;
   transform-origin: center;
 }
-.ssaprt-popup--animate-flip-x-out {
+:where(.ssaprt-popup--animate-flip-x-out) {
   animation-name: ssaprt-popup-flip-x-out;
   transform-origin: center;
 }
-.ssaprt-popup--animate-flip-y-in {
+:where(.ssaprt-popup--animate-flip-y-in) {
   animation-name: ssaprt-popup-flip-y-in;
   transform-origin: center;
 }
-.ssaprt-popup--animate-flip-y-out {
+:where(.ssaprt-popup--animate-flip-y-out) {
   animation-name: ssaprt-popup-flip-y-out;
   transform-origin: center;
 }
-.ssaprt-popup--animate-tilt-in {
+:where(.ssaprt-popup--animate-tilt-in) {
   animation-name: ssaprt-popup-tilt-in;
 }
-.ssaprt-popup--animate-tilt-out {
+:where(.ssaprt-popup--animate-tilt-out) {
   animation-name: ssaprt-popup-tilt-out;
 }
-.ssaprt-popup--animate-bounce-in {
+:where(.ssaprt-popup--animate-bounce-in) {
   animation-name: ssaprt-popup-bounce-in;
 }
-.ssaprt-popup--animate-bounce-out {
+:where(.ssaprt-popup--animate-bounce-out) {
   animation-name: ssaprt-popup-bounce-out;
 }
-.ssaprt-popup--animate-pulse-in {
+:where(.ssaprt-popup--animate-pulse-in) {
   animation-name: ssaprt-popup-pulse-in;
 }
-.ssaprt-popup--animate-pulse-out {
+:where(.ssaprt-popup--animate-pulse-out) {
   animation-name: ssaprt-popup-pulse-out;
 }
-.ssaprt-popup--animate-heartbeat-in {
+:where(.ssaprt-popup--animate-heartbeat-in) {
   animation-name: ssaprt-popup-heartbeat-in;
 }
-.ssaprt-popup--animate-heartbeat-out {
+:where(.ssaprt-popup--animate-heartbeat-out) {
   animation-name: ssaprt-popup-heartbeat-out;
 }
-.ssaprt-popup--animate-shake-in {
+:where(.ssaprt-popup--animate-shake-in) {
   animation-name: ssaprt-popup-shake-in;
 }
-.ssaprt-popup--animate-shake-out {
+:where(.ssaprt-popup--animate-shake-out) {
   animation-name: ssaprt-popup-shake-out;
 }
-.ssaprt-popup--animate-wobble-in {
+:where(.ssaprt-popup--animate-wobble-in) {
   animation-name: ssaprt-popup-wobble-in;
 }
-.ssaprt-popup--animate-wobble-out {
+:where(.ssaprt-popup--animate-wobble-out) {
   animation-name: ssaprt-popup-wobble-out;
 }
-.ssaprt-popup--animate-swing-in {
+:where(.ssaprt-popup--animate-swing-in) {
   animation-name: ssaprt-popup-swing-in;
   transform-origin: top center;
 }
-.ssaprt-popup--animate-swing-out {
+:where(.ssaprt-popup--animate-swing-out) {
   animation-name: ssaprt-popup-swing-out;
   transform-origin: top center;
 }
-.ssaprt-popup--animate-rubber-band-in {
+:where(.ssaprt-popup--animate-rubber-band-in) {
   animation-name: ssaprt-popup-rubber-band-in;
 }
-.ssaprt-popup--animate-rubber-band-out {
+:where(.ssaprt-popup--animate-rubber-band-out) {
   animation-name: ssaprt-popup-rubber-band-out;
 }
-.ssaprt-popup--animate-jello-in {
+:where(.ssaprt-popup--animate-jello-in) {
   animation-name: ssaprt-popup-jello-in;
   transform-origin: center;
 }
-.ssaprt-popup--animate-jello-out {
+:where(.ssaprt-popup--animate-jello-out) {
   animation-name: ssaprt-popup-jello-out;
   transform-origin: center;
 }
-.ssaprt-popup--animate-float-in {
+:where(.ssaprt-popup--animate-float-in) {
   animation-name: ssaprt-popup-float-in;
 }
-.ssaprt-popup--animate-float-out {
+:where(.ssaprt-popup--animate-float-out) {
   animation-name: ssaprt-popup-float-out;
 }
-.ssaprt-popup--animate-breathe-in {
+:where(.ssaprt-popup--animate-breathe-in) {
   animation-name: ssaprt-popup-breathe-in;
 }
-.ssaprt-popup--animate-breathe-out {
+:where(.ssaprt-popup--animate-breathe-out) {
   animation-name: ssaprt-popup-breathe-out;
 }
-.ssaprt-popup--animate-spin-in {
+:where(.ssaprt-popup--animate-spin-in) {
   animation-name: ssaprt-popup-spin-in;
 }
-.ssaprt-popup--animate-spin-out {
+:where(.ssaprt-popup--animate-spin-out) {
   animation-name: ssaprt-popup-spin-out;
 }
-.ssaprt-popup--animate-glow-in {
+:where(.ssaprt-popup--animate-glow-in) {
   animation-name: ssaprt-popup-glow-in;
   will-change:
     transform,
     opacity,
     box-shadow;
 }
-.ssaprt-popup--animate-glow-out {
+:where(.ssaprt-popup--animate-glow-out) {
   animation-name: ssaprt-popup-glow-out;
   will-change:
     transform,
     opacity,
     box-shadow;
 }
-.ssaprt-popup--animate-glitch-in {
+:where(.ssaprt-popup--animate-glitch-in) {
   animation-name: ssaprt-popup-glitch-in;
   will-change:
     transform,
     opacity,
     filter;
 }
-.ssaprt-popup--animate-glitch-out {
+:where(.ssaprt-popup--animate-glitch-out) {
   animation-name: ssaprt-popup-glitch-out;
   will-change:
     transform,
     opacity,
     filter;
 }
-.ssaprt-popup--animate-jump-in {
+:where(.ssaprt-popup--animate-jump-in) {
   animation-name: ssaprt-popup-jump-in;
   transform-origin: bottom center;
 }
-.ssaprt-popup--animate-jump-out {
+:where(.ssaprt-popup--animate-jump-out) {
   animation-name: ssaprt-popup-jump-out;
   transform-origin: bottom center;
 }
-.ssaprt-popup--animate-press-in {
+:where(.ssaprt-popup--animate-press-in) {
   animation-name: ssaprt-popup-press-in;
 }
-.ssaprt-popup--animate-press-out {
+:where(.ssaprt-popup--animate-press-out) {
   animation-name: ssaprt-popup-press-out;
 }
 @keyframes ssaprt-popup-fade-in {
@@ -1295,7 +1295,7 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .animate {
+  :where(.animate) {
     animation-duration: 1ms !important;
     animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
@@ -1303,7 +1303,7 @@
 }
 
 /* src/css/popup.css */
-.ssaprt-popup__layer {
+:where(.ssaprt-popup__layer) {
   position: fixed;
   inset: 0;
   width: 100vw;
@@ -1318,13 +1318,13 @@
   -webkit-backdrop-filter: blur(var(--ssaprt-popup-layer-blur, 0px));
   will-change: background-color, backdrop-filter;
 }
-.ssaprt-popup__layer--opening {
+:where(.ssaprt-popup__layer--opening) {
   animation-name: ssaprt-popup-layer-opening;
   animation-duration: var(--ssaprt-popup-layer-duration, 600ms);
   animation-timing-function: var(--ssaprt-popup-layer-easing, ease);
   animation-fill-mode: both;
 }
-.ssaprt-popup__layer--closing {
+:where(.ssaprt-popup__layer--closing) {
   animation-name: ssaprt-popup-layer-closing;
   animation-duration: var(--ssaprt-popup-layer-duration, 600ms);
   animation-timing-function: var(--ssaprt-popup-layer-easing, ease);
@@ -1332,42 +1332,56 @@
 }
 @keyframes ssaprt-popup-layer-opening {
   0% {
-    background-color: transparent;
     backdrop-filter: blur(0);
     -webkit-backdrop-filter: blur(0);
   }
   25%, 100% {
-    background-color: var(--ssaprt-popup-layer-background, transparent);
     backdrop-filter: blur(var(--ssaprt-popup-layer-blur, 0px));
     -webkit-backdrop-filter: blur(var(--ssaprt-popup-layer-blur, 0px));
   }
 }
 @keyframes ssaprt-popup-layer-closing {
   0%, 75% {
-    background-color: var(--ssaprt-popup-layer-background, transparent);
     backdrop-filter: blur(var(--ssaprt-popup-layer-blur, 0px));
     -webkit-backdrop-filter: blur(var(--ssaprt-popup-layer-blur, 0px));
   }
   100% {
-    background-color: transparent;
     backdrop-filter: blur(0);
     -webkit-backdrop-filter: blur(0);
   }
 }
-.ssaprt-popup__container {
-  position: relative;
+:where(.ssaprt-popup__container) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  overflow: visible;
+  width: var(--ssaprt-popup-container-width, auto);
+  height: var(--ssaprt-popup-container-height, auto);
+  max-width: 100%;
+  max-height: 100dvh;
+  min-width: min(300px, 90vw);
+  min-height: 200px;
+  padding: 10px;
+  overflow: hidden;
+  color: var(--ssaprt-popup-container-color, inherit);
+  background: var(--ssaprt-popup-container-background, #ffffff);
+  border: var(--ssaprt-popup-container-border, 0);
+  border-radius: var(--ssaprt-popup-container-border-radius, 12px);
+  box-shadow: var( --ssaprt-popup-container-box-shadow, 0 18px 50px rgba(0, 0, 0, 0.12) );
+  font-family: var(--ssaprt-popup-container-font-family, inherit);
+  backdrop-filter: var(--ssaprt-popup-container-backdrop-filter, none);
+  -webkit-backdrop-filter: var( --ssaprt-popup-container-webkit-backdrop-filter, none );
   transform-style: preserve-3d;
   transform-origin: center;
   backface-visibility: hidden;
   will-change: transform, opacity;
 }
-.ssaprt-popup__header {
+:where(.ssaprt-popup__header) {
   position: relative;
   display: flex;
   align-items: center;
@@ -1375,8 +1389,10 @@
   max-width: 100%;
   white-space: nowrap;
   text-overflow: ellipsis;
+  color: var(--ssaprt-popup-header-color, inherit);
+  border-radius: var(--ssaprt-popup-header-border-radius, 12px);
 }
-.ssaprt-popup__body {
+:where(.ssaprt-popup__body) {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -1385,13 +1401,29 @@
   gap: 10px;
   min-width: 0;
   min-height: 0;
+  overflow-x: auto;
+  overflow-y: auto;
+  color: var(--ssaprt-popup-body-color, inherit);
 }
-.ssaprt-popup__close {
+:where(.ssaprt-popup__close) {
   position: absolute;
+  top: 8px;
+  right: 8px;
   z-index: 2;
   display: grid;
   place-items: center;
+  width: var(--ssaprt-popup-close-width, 32px);
+  height: var(--ssaprt-popup-close-height, 32px);
+  flex-shrink: 0;
   box-sizing: border-box;
+  padding: 0;
+  border: var(--ssaprt-popup-close-border, 0);
+  border-radius: var(--ssaprt-popup-close-border-radius, 50%);
+  color: var(--ssaprt-popup-close-color, currentColor);
+  background: var(--ssaprt-popup-close-background, transparent);
+  box-shadow: var(--ssaprt-popup-close-box-shadow, none);
+  backdrop-filter: var(--ssaprt-popup-close-backdrop-filter, none);
+  -webkit-backdrop-filter: var( --ssaprt-popup-close-webkit-backdrop-filter, none );
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -1402,17 +1434,17 @@
     visibility 160ms ease,
     transform 160ms ease;
 }
-.ssaprt-popup__close--visible {
+:where(.ssaprt-popup__close--visible) {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transform: scale(1);
 }
-.ssaprt-popup__close--timer {
+:where(.ssaprt-popup__close--timer) {
   cursor: default;
   pointer-events: none;
 }
-.ssaprt-popup__close-button {
+:where(.ssaprt-popup__close-button) {
   display: grid;
   place-items: center;
   width: 100%;
@@ -1429,11 +1461,11 @@
   -webkit-appearance: none;
   cursor: pointer;
 }
-.ssaprt-popup__close-button:focus-visible {
+:where(.ssaprt-popup__close-button):focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
-.ssaprt-popup__close-icon {
+:where(.ssaprt-popup__close-icon) {
   display: grid;
   place-items: center;
   width: 100%;
@@ -1442,12 +1474,12 @@
   line-height: 1;
   pointer-events: none;
 }
-.ssaprt-popup__close-icon > svg {
+:where(.ssaprt-popup__close-icon > svg) {
   width: 100%;
   height: 100%;
   pointer-events: none;
 }
-.ssaprt-popup__close-timer {
+:where(.ssaprt-popup__close-timer) {
   position: relative;
   display: grid;
   place-items: center;
@@ -1457,14 +1489,14 @@
   min-height: 0;
   box-sizing: border-box;
   border-radius: 50%;
-  color: inherit;
-  background: rgba(91, 31, 134, 0.08);
+  color: var(--ssaprt-popup-close-timer-color, #18181b);
+  background: var(--ssaprt-popup-close-timer-background, transparent);
   isolation: isolate;
   pointer-events: none;
   user-select: none;
   -webkit-user-select: none;
 }
-.ssaprt-popup__close-timer-svg {
+:where(.ssaprt-popup__close-timer-svg) {
   position: absolute;
   inset: 0;
   display: block;
@@ -1475,23 +1507,22 @@
   transform-origin: center;
   pointer-events: none;
 }
-.ssaprt-popup__close-timer-track,
-.ssaprt-popup__close-timer-progress {
+:where(.ssaprt-popup__close-timer-track, .ssaprt-popup__close-timer-progress) {
   fill: none;
   pointer-events: none;
 }
-.ssaprt-popup__close-timer-track {
+:where(.ssaprt-popup__close-timer-track) {
   stroke: currentColor;
   stroke-width: 2;
   opacity: 0.18;
 }
-.ssaprt-popup__close-timer-progress {
+:where(.ssaprt-popup__close-timer-progress) {
   stroke: currentColor;
   stroke-width: 3;
   stroke-linecap: round;
   transition: none;
 }
-.ssaprt-popup__close-timer-value {
+:where(.ssaprt-popup__close-timer-value) {
   position: relative;
   z-index: 1;
   display: grid;
@@ -1504,11 +1535,10 @@
   pointer-events: none;
 }
 @media (prefers-reduced-motion: reduce) {
-  .ssaprt-popup__layer--opening,
-  .ssaprt-popup__layer--closing {
+  :where(.ssaprt-popup__layer--opening, .ssaprt-popup__layer--closing) {
     animation-timing-function: linear;
   }
-  .ssaprt-popup__close {
+  :where(.ssaprt-popup__close) {
     transition-duration: 1ms;
   }
 }
