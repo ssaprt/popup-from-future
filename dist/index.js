@@ -1067,7 +1067,8 @@ var Popup = (0, import_react.forwardRef)(
     close,
     customStyle,
     size,
-    header
+    header,
+    hideOverlay
   }, ref) => {
     const [body, setBody] = (0, import_react.useState)(null);
     const [phase, setPhase] = (0, import_react.useState)("hidden");
@@ -1123,6 +1124,12 @@ var Popup = (0, import_react.forwardRef)(
         return currentPhase;
       });
     }, [isOpen, hasCloseTimer, closeTimerDuration]);
+    const handleClickOverlay = (e) => {
+      console.log("click");
+      if (!hideOverlay || !closeUnlocked || e.target !== layerRef.current)
+        return;
+      setPhase("closing");
+    };
     const handleClose = () => {
       if (phase === "hidden" || phase === "closing" || !closeUnlocked) {
         return;
@@ -1175,6 +1182,7 @@ var Popup = (0, import_react.forwardRef)(
         {
           ref: layerRef,
           className: layerClassName,
+          onClick: (e) => handleClickOverlay(e),
           style: {
             ...config.layer.style,
             zIndex: config.index,

@@ -4,6 +4,7 @@ import {
     CSSProperties,
     forwardRef,
     memo,
+    MouseEvent,
     useCallback,
     useEffect,
     useMemo,
@@ -194,6 +195,7 @@ export const Popup = forwardRef<HTMLDivElement, PopupInterface>(
             customStyle,
             size,
             header,
+            hideOverlay,
         }: PopupInterface,
         ref,
     ) => {
@@ -280,6 +282,17 @@ export const Popup = forwardRef<HTMLDivElement, PopupInterface>(
             });
         }, [isOpen, hasCloseTimer, closeTimerDuration]);
 
+        const handleClickOverlay = (e: MouseEvent) => {
+            console.log("click");
+            if (
+                !hideOverlay ||
+                !closeUnlocked ||
+                e.target !== (layerRef.current as HTMLDivElement)
+            )
+                return;
+            setPhase("closing");
+        };
+
         const handleClose = () => {
             if (phase === "hidden" || phase === "closing" || !closeUnlocked) {
                 return;
@@ -351,6 +364,7 @@ export const Popup = forwardRef<HTMLDivElement, PopupInterface>(
             <div
                 ref={layerRef}
                 className={layerClassName}
+                onClick={(e: MouseEvent) => handleClickOverlay(e)}
                 style={
                     {
                         ...config.layer.style,

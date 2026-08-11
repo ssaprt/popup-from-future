@@ -106,6 +106,7 @@ interface PopupInterface {
     isOpen: boolean;
     open?: (status: boolean) => void;
     className?: string;
+    hideOverlay?: boolean;
     index?: number;
     animation?: PopupAnimationProps;
     preset?: PopupPresetName;
